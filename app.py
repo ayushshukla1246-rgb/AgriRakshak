@@ -26,4 +26,10 @@ if uploaded_file is not None:
         else:
             st.error(f"⚠️ Disease Detected: {prediction}")
             st.warning(f"Confidence: {confidence:.1f}%")
-            st.info("💡 Recommendation: Mark this area for targeted spraying.")
+            st.info("💡 Recommendation: Mark this area for targeted spraying.")# Save the model
+    model.save('agrirakshak_model.h5')
+    
+    # Download it to your computer
+    from google.colab import files
+    files.download('agrirakshak_model.h5')
+    
